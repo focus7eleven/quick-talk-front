@@ -1,5 +1,7 @@
 import React from 'react'
 import styles from './AppContainer.scss'
+import ChatComponent from './containers/ChatContainer'
+import LocationComponent from './containers/LocationContainer'
 
 const AppContainer = React.createClass({
   getInitialState(){
@@ -10,9 +12,8 @@ const AppContainer = React.createClass({
   render(){
     return (
       <div className={styles.app}>
-        <div className={styles.container}>
-          <div>give boss a cup of tea</div>
-        </div>
+        <LocationComponent></LocationComponent>
+        <ChatComponent></ChatComponent>
       </div>
     )
   }
