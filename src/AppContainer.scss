@@ -3,12 +3,54 @@
   display: flex;
   flex-direction: row;
 
-  >div:first-child{
+  :local(.banner){
+    width: 100%;
     height: 100%;
-    width: 400px
+    background-image: url(../resource/banner.jpg);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    :local(.slogon){
+      color: white;
+    }
+
+    >input{
+      width: 200px;
+      margin: 0 auto;
+      background: none;
+      border: none;
+      border-bottom: 1px solid #ed1965;
+      padding: 5px 0 5px 0;
+      font-size: 20px;
+      text-align: center;
+      color: white;
+      &:focus{
+        border: none;
+        border-bottom: 1px solid #ed1965;
+        outline: none;
+      }
+    }
   }
-  >div:nth-child(2){
+
+  :local(.container){
     height: 100%;
-    width: calc( 100% - 400px );
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+    :local(.leftPanel){
+      height: 100%;
+      width: 400px;
+      min-width: 400px;
+    }
+
+    :local(.rightPanel){
+      height: 100%;
+      width: calc( 100% - 400px );
+      min-width: 800px;
+      overflow-y: hidden;
+    }
   }
 }

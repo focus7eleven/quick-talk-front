@@ -5,7 +5,6 @@ let config = require('./webpack.config.js');
 
 let server = new WebpackDevServer(webpack(config), {
     publicPath: config.output.publicPath,
-    proxy: config.devServer.proxy,
     contentBase: './dist',
 		hot: true,
     stats: { colors: true },

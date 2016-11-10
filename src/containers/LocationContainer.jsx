@@ -1,5 +1,6 @@
 import React,{PropTypes} from 'react'
 import styles from './LocationContainer.scss'
+import classnames from 'classnames'
 
 const LocationComponent = React.createClass({
   getInitialState(){
@@ -9,7 +10,7 @@ const LocationComponent = React.createClass({
 
   render(){
     return (
-      <div className={styles.container}>location</div>
+      <div className={classnames(this.props.className,styles.container)} >location</div>
     )
   }
 

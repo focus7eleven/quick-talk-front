@@ -75,9 +75,4 @@ module.exports = {
 	},
 	plugins: plugins,
 	devtool: 'source-map',
-	node: {
-    fs: 'empty',
-    net: 'empty',
-    tls: 'empty'
-  },
 }
