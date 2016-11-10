@@ -41,15 +41,17 @@
     flex-direction: row;
 
     :local(.leftPanel){
+      position: relative;
       height: 100%;
       width: 400px;
       min-width: 400px;
+      transition: width 0.5s ease;
     }
 
     :local(.rightPanel){
       height: 100%;
       width: calc( 100% - 400px );
-      min-width: 800px;
+      min-width: 600px;
       overflow-y: hidden;
     }
   }

@@ -8,6 +8,7 @@ const AppContainer = React.createClass({
     return {
       nickname: "",
       hasNickname: false,
+      // hasNickname: true,
     }
   },
 

@@ -20,7 +20,7 @@ const MapComponent = React.createClass({
 
       this.map = new AMap.Map('mapview',{
           zoom: 16,
-          mapStyle: "dark",
+          mapStyle: "normal",
           center: [118.780612, 32.054366]
       });
 
@@ -39,7 +39,7 @@ const MapComponent = React.createClass({
       this.selectedPoiMarker.setPosition(e.lnglat);
       this.geocoder.getAddress(e.lnglat, (status, result) => {
           console.log(e.lnglat);
-          alert(result.regeocode.formattedAddress);
+          console.log(result.regeocode.formattedAddress);
       });
       this.setState({
           selectedPoi: e.lnglat
@@ -47,9 +47,10 @@ const MapComponent = React.createClass({
   },
 
   render(){
+    const {size} = this.props;
     return (
-      <div className={styles.map}>
-          <div id="mapview" className={styles.mapview}></div>
+      <div className={styles.map} style={{width:size,height:size}}>
+          <div id="mapview" className={styles.mapview} style={{width:size,height:size}}></div>
       </div>
     )
   }
