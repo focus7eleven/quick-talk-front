@@ -5,7 +5,7 @@ import classnames from 'classnames'
 const MapComponent = React.createClass({
   getInitialState(){
     return {
-        selectedPoi: [118.77881, 32.04389]
+        selectedPoi: [118.780612, 32.054366]
     }
   },
 
@@ -19,8 +19,9 @@ const MapComponent = React.createClass({
         });
 
       this.map = new AMap.Map('mapview',{
-          zoom: 10,
-          center: [118.77881, 32.04389]
+          zoom: 16,
+          mapStyle: "dark",
+          center: [118.780612, 32.054366]
       });
 
       this.selectedPoiMarker = new AMap.Marker({
@@ -37,7 +38,7 @@ const MapComponent = React.createClass({
   {
       this.selectedPoiMarker.setPosition(e.lnglat);
       this.geocoder.getAddress(e.lnglat, (status, result) => {
-          console.log(result);
+          console.log(e.lnglat);
           alert(result.regeocode.formattedAddress);
       });
       this.setState({
