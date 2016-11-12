@@ -60,6 +60,7 @@ const ChatComponent = React.createClass({
       let newList = this.state.messageList;
       newList = newList.concat([newMessage]);
       this.setState({messageList:newList,newMessage:""});
+      this.props.postMessage(newMessage);
     }
   },
 

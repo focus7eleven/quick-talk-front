@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './AppContainer.scss'
 import ChatComponent from './containers/ChatContainer'
 import LocationComponent from './containers/LocationContainer'
+import io from 'socket.io-client';
 
 const AppContainer = React.createClass({
   getInitialState(){
@@ -9,7 +10,13 @@ const AppContainer = React.createClass({
       nickname: "",
       hasNickname: false,
       // hasNickname: true,
+      socket: null,
     }
+  },
+
+  componentWillMount(){
+    const socket = io.connect('http://localhost:5050/mx-qq');
+    this.setState({socket});
   },
 
   handleNickname(e){
@@ -22,8 +29,12 @@ const AppContainer = React.createClass({
     }
   },
 
+  handlePostMessage(newMessage){
+    console.log(newMessage);
+  },
+
   render(){
-    const {nickname,hasNickname} = this.state;
+    const {nickname,hasNickname,socket} = this.state;
 
     return (
       <div className={styles.app}>
@@ -36,7 +47,7 @@ const AppContainer = React.createClass({
           :
           <div className={styles.container}>
             <LocationComponent className={styles.leftPanel}></LocationComponent>
-            <ChatComponent className={styles.rightPanel} nickname={nickname}></ChatComponent>
+            <ChatComponent className={styles.rightPanel} nickname={nickname} postMessage={this.handlePostMessage}></ChatComponent>
           </div>
         }
       </div>
