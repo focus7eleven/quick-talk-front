@@ -38,12 +38,13 @@ const MapComponent = React.createClass({
   {
       this.selectedPoiMarker.setPosition(e.lnglat);
       this.geocoder.getAddress(e.lnglat, (status, result) => {
-          console.log(e.lnglat);
-          console.log(result.regeocode.formattedAddress);
+          // console.log(e.lnglat);
+          // console.log(result.regeocode.formattedAddress);
       });
       this.setState({
           selectedPoi: e.lnglat
       });
+      this.props.updateLocation(e.lnglat);
   },
 
   render(){

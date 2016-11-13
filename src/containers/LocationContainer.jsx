@@ -17,7 +17,6 @@ const LocationComponent = React.createClass({
     leftPanel.style.width = '800px';
     mapPanel.style.height = '500px';
     this.setState({mode:1});
-    console.log(leftPanel.style);
   },
 
   handlePicked(){
@@ -37,9 +36,9 @@ const LocationComponent = React.createClass({
         <div className={styles.mapContainer} ref="mapPanel">
           {
             !mode ?
-            <MapComponent size="300px"></MapComponent>
+            <MapComponent updateLocation={this.props.updateLocation} size="300px"></MapComponent>
             :
-            <MapComponent size="500px"></MapComponent>
+            <MapComponent updateLocation={this.props.updateLocation} size="500px"></MapComponent>
           }
         </div>
         {
